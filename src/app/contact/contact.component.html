@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true"
+       style="background-image: url('./assets//img/parallax/contact_page.jpg');">
+    <!--<div class="filter"></div>-->
+  </div>
+  <div class="container main_container">
+    <div class="row">
+      <div class="col-md-8 mr-auto ml-auto">
+        <h2 class="text-center">Contact me</h2>
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-6">
+              <label>Name</label>
+              <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                <input type="text"
+                       class="form-control"
+                       formControlName="name"
+                       [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                       required
+                       placeholder="Name"
+                       (focus)="focus=true"
+                       (blur)="focus=false">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label>Email</label>
+              <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+                <span class="input-group-addon">
+                  <i class="nc-icon nc-email-85"></i>
+                </span>
+                <input type="email"
+                       class="form-control"
+                       formControlName="email"
+                       [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                       placeholder="Email"
+                       required
+                       email
+                       (focus)="focus1=true"
+                       (blur)="focus1=false">
+              </div>
+            </div>
+          </div>
+          <label>Message</label>
+          <textarea class="form-control"
+                    formControlName="message"
+                    [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
+                    rows="4"
+                    required
+                    placeholder="What is on your mind..."></textarea>
+          <div class="row">
+            <div class="col-md-4 mr-auto ml-auto">
+              <button type="submit" class="btn btn-danger btn-lg btn-fill">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
